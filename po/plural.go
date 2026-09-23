@@ -113,6 +113,7 @@ var pluralExprs = map[string]string{
 var pluralSelectors = stripSpace(map[string]PluralSelector{
 	"nplurals=1; plural=0;":                                                                                  plural0,
 	"nplurals=2; plural=(n != 1);":                                                                           pluralNeq1,
+	"nplurals=2; plural=n != 1;":                                                                             pluralNeq1,
 	"nplurals=2; plural=(n > 1);":                                                                            pluralGt1,
 	"nplurals=2; plural=(n%10!=1 || n%100==11);":                                                             pluralIcelandic,
 	"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);":                                        pluralLatvian,
