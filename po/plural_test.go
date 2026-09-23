@@ -29,3 +29,15 @@ func TestPluralSelectorForLanguage(t *testing.T) {
 		}
 	}
 }
+
+func TestSmartlingPluralSelector(t *testing.T) {
+	selector := lookupPluralSelector("nplurals=2; plural=n != 1;")
+	if selector == nil {
+		t.Fatal("Smartling plural selector not recognized")
+	}
+	for n, want := range map[int]int{0: 1, 1: 0, 2: 1} {
+		if got := selector(n); got != want {
+			t.Errorf("n=%d: got %d, want %d", n, got, want)
+		}
+	}
+}
